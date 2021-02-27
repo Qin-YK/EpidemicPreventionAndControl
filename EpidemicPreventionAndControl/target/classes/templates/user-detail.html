@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>管理平台</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <link rel="stylesheet" type="text/css" th:href="@{/weui.css}">
+</head>
+<body>
+<div class="container">
+    <div class="page">
+        <div class="weui-form">
+            <div class="weui-panel weui-panel_access">
+                <div class="weui-panel__hd" th:text="${user.name}"></div>
+                <div class="weui-panel__bd">
+                    <div class="weui-media-box weui-media-box_text">
+                        <h4 th:text="${user.mobile}" class="weui-media-box__title"></h4>
+                        <p th:text="${user.building + '-' + user.unit + '-' + user.room}" class="weui-media-box__desc"></p>
+                        <ul class="weui-media-box__info">
+                            <li th:text="${user.idCard}" class="weui-media-box__info__meta"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="weui-panel weui-panel_access">
+                    <div class="weui-panel__bd">
+                        <div th:each="user : ${records}" class="weui-media-box weui-media-box_text">
+                            <h4 th:text="${'体温：' + user.temperature}" class="weui-media-box__title"></h4>
+                            <p th:text="${user.createTime}" class="weui-media-box__desc"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-panel weui-panel_access">
+                    <div class="weui-panel__bd">
+                        <div class="weui-panel__ft">
+                            <a href="javascript:document.getElementById('logoutForm').submit();" class="weui-cell weui-cell_active weui-cell_access weui-cell_link">
+                                <div class="weui-cell__bd">退出登录</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="display:none;">
+            <form id="logoutForm" method="POST" th:action="@{/logout}">
+                <div class="weui-form__control-area">
+                    <div class="weui-cells__group weui-cells__group_form">
+                        <input class="weui-btn weui-btn_warn" type="submit" value="管理员退出">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

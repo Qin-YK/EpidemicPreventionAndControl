@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>操作成功</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <link rel="stylesheet" type="text/css" th:href="@{/weui.css}">
+</head>
+<body>
+<div class="container">
+    <div class="page">
+        <div class="weui-msg">
+            <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+            <div class="weui-msg__text-area">
+                <h2 class="weui-msg__title">操作成功</h2>
+                <p class="weui-msg__desc">信息提交成功，感谢配合</p>
+            </div>
+            <div class="weui-msg__extra-area">
+                <div class="weui-footer">
+                    <p class="weui-footer__text">Copyright © 2020 访客登记</p>
+                </div>
+            </div>
+            <div th:if="${type == 'userSubmit'}" class="button-sp-area">
+                <a th:href="@{/}" class="weui-btn weui-btn_primary">去登记</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>访客登记</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <link rel="stylesheet" type="text/css" th:href="@{/weui.css}">
+</head>
+<body>
+<div class="container">
+    <div class="page">
+        <div class="weui-form">
+            <div class="weui-form__text-area">
+                <h2 class="weui-form__title">信息登记</h2>
+                <div class="weui-form__desc">📝</div>
+            </div>
+            <form method="POST" th:action="@{/user}" th:object="${user}" >
+                <div class="weui-form__control-area">
+                    <div class="weui-cells__group weui-cells__group_form">
+                        <div class="weui-cells__title">请提交真实的个人信息</div>
+                        <div class="weui-cells weui-cells_form">
+                            <div class="weui-cell weui-cell_active">
+                                <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+                                <div class="weui-cell__bd">
+                                    <input id="name_input" th:field="*{name}" class="weui-input" placeholder="">
+                                </div>
+                            </div>
+                            <div class="weui-cell weui-cell_active">
+                                <div class="weui-cell__hd"><label class="weui-label">手机号</label></div>
+                                <div class="weui-cell__bd">
+                                    <input id="mobile_input" th:field="*{mobile}" class="weui-input" placeholder="" type="number">
+                                </div>
+                            </div>
+                            <div class="weui-cell weui-cell_active">
+                                <div class="weui-cell__hd"><label class="weui-label">身份证号</label></div>
+                                <div class="weui-cell__bd">
+                                    <input id="idCard_input" th:field="*{idCard}" class="weui-input" placeholder="" type="text">
+                                </div>
+                            </div>
+                            <div class="weui-cell weui-cell_active">
+                                <div class="weui-cell__hd"><label class="weui-label">楼座</label></div>
+                                <div class="weui-cell__bd">
+                                    <input id="building_input" th:field="*{building}" class="weui-input" placeholder="" type="text">
+                                </div>
+                            </div>
+                            <div class="weui-cell weui-cell_active">
+                                <div class="weui-cell__hd"><label class="weui-label">单元</label></div>
+                                <div class="weui-cell__bd">
+                                    <input id="unit_input" th:field="*{unit}" class="weui-input" placeholder="" type="text">
+                                </div>
+                            </div>
+                            <div class="weui-cell weui-cell_active">
+                                <div class="weui-cell__hd"><label class="weui-label">房号</label></div>
+                                <div class="weui-cell__bd">
+                                    <input id="room_input" th:field="*{room}" class="weui-input" placeholder="" type="number">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-form__opr-area">
+                    <input class="weui-btn weui-btn_primary" type="submit" value="提交"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
